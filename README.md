@@ -10,7 +10,7 @@
 <dependency>
     <groupId>org.rocketmq</groupId>
     <artifactId>spring-boot-starter-rocketmq</artifactId>
-    <version>1.0.0.RELEASE</version>
+    <version>1.1.0.RELEASE</version>
 </dependency>
 ```
 

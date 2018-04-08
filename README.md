@@ -51,7 +51,7 @@ public class RocketMQApplication {
 @Service
 @RocketMQListener(topic = "topic-1")
 public class MyConsumer1 {
-     @RocketMQMessageListener(messageClass = String.class,tag = "tag-1")
+     @RocketMQMessage(messageClass = String.class,tag = "tag-1")
      public void onMessage(String message) {
          log.info("received message: {}", message);
      }

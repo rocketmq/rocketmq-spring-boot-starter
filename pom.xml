@@ -21,7 +21,7 @@
 
     <groupId>org.rocketmq</groupId>
     <artifactId>spring-boot-starter-rocketmq</artifactId>
-    <version>1.0.0.RELEASE</version>
+    <version>1.1.0.RELEASE</version>
     <packaging>jar</packaging>
 
     <name>spring-boot-starter-rocketmq</name>
@@ -43,7 +43,7 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/he-jialin/spring-boot-starter-rocketmq</url>
+        <url>https://github.com/rocketmq/spring-boot-starter-rocketmq</url>
         <connection>https://github.com/rocketmq/spring-boot-starter-rocketmq.git</connection>
         <developerConnection>https://www.rocketmq.org</developerConnection>
     </scm>

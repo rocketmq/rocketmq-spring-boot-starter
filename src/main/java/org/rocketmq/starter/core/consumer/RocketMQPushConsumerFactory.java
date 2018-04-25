@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 用来生成DefaultMqPushConsumer
+ * 用来生成DefaultMQPushConsumer
  *
  * @author He Jialin
  */
@@ -47,7 +47,7 @@ public class RocketMQPushConsumerFactory implements InitializingBean, Applicatio
 
 
     private DefaultMQPushConsumer createDefaultMQPushConsumer(RocketMQConsumerListener rocketMQConsumerListener) {
-        ConsumerConfigRocket config = rocketMQConsumerListener.getConsumerConfig();
+        RocketMQConsumerConfig config = rocketMQConsumerListener.getConsumerConfig();
         DefaultMQPushConsumer defaultMQPushConsumer = new DefaultMQPushConsumer();
         defaultMQPushConsumer.setNamesrvAddr(nameSrvAddr);
         defaultMQPushConsumer.setConsumerGroup(config.getConsumerGroup());

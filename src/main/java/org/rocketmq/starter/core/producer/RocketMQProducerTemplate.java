@@ -7,7 +7,6 @@ import org.apache.rocketmq.client.producer.MessageQueueSelector;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.remoting.exception.RemotingException;
-
 import org.rocketmq.starter.core.RocketMQProducer;
 import org.rocketmq.starter.exception.ContatinerInitException;
 import org.slf4j.Logger;
@@ -18,15 +17,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * @author He Jialin
  */
-public class RocketMQProducerTemplate<M> implements RocketMQProducer<M> {
+public class RocketMQProducerTemplate<M> extends RocketMQProducerConfig implements RocketMQProducer<M> {
 
     private static final Logger logger = LoggerFactory.getLogger(RocketMQProducerTemplate.class);
 
     private String namesrvAddr = System.getProperty("spring.rocketmq.namesrv.addr", System.getenv("NAMESRV_ADDR"));
 
     private DefaultMQProducer defaultMQProducer;
-
-    private ProducerConfigRocket producerConfig;
 
     private AtomicBoolean started = new AtomicBoolean(false);
 
@@ -43,8 +40,8 @@ public class RocketMQProducerTemplate<M> implements RocketMQProducer<M> {
         if (this.defaultMQProducer == null) {
             this.defaultMQProducer = new DefaultMQProducer();
         }
-        this.defaultMQProducer.setProducerGroup(this.producerConfig.getProducerGroup());
-        this.defaultMQProducer.setSendMsgTimeout(this.producerConfig.getTimeOut());
+        this.defaultMQProducer.setProducerGroup(this.getProducerGroup());
+        this.defaultMQProducer.setSendMsgTimeout(this.getTimeOut());
         this.defaultMQProducer.setNamesrvAddr(this.namesrvAddr);
         this.defaultMQProducer.start();
         this.started.set(true);
@@ -66,7 +63,7 @@ public class RocketMQProducerTemplate<M> implements RocketMQProducer<M> {
         if (messageProxy.getMessage() == null) {
             throw new NullPointerException("消息不能为空");
         }
-        if (this.producerConfig.isOrderlyMessage()) {
+        if (this.isOrderlyMessage()) {
             MessageQueueSelector selector = messageProxy.getMessageQueueSelector();
             if (selector == null) {
                 throw new NullPointerException("顺序消息必须配置MessageQueueSelector");
@@ -77,16 +74,6 @@ public class RocketMQProducerTemplate<M> implements RocketMQProducer<M> {
             this.defaultMQProducer.send(messageProxy.getMessage(), sendCallback);
         }
     }
-
-
-    public ProducerConfigRocket getProducerConfig() {
-        return this.producerConfig;
-    }
-
-    public void setProducerConfig(ProducerConfigRocket producerConfig) {
-        this.producerConfig = producerConfig;
-    }
-
 
     private static class DefaultSendCallback implements SendCallback {
 
@@ -100,4 +87,5 @@ public class RocketMQProducerTemplate<M> implements RocketMQProducer<M> {
 
         }
     }
+
 }

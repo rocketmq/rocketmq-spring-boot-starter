@@ -21,7 +21,7 @@ public final class RocketMQListenerMethodAdapter<E> implements RocketMQConsumerL
 
     private final SubscriptionGroup subscriptionGroup;
 
-    private ConsumerConfigRocket consumerConfig;
+    private RocketMQConsumerConfig consumerConfig;
 
     private MethodInvoker invoker;
 
@@ -32,7 +32,7 @@ public final class RocketMQListenerMethodAdapter<E> implements RocketMQConsumerL
 
     private void initConfig(SubscriptionGroup subscriptionGroup) {
         RocketMQListener rocketMQListener = subscriptionGroup.getTarget().getClass().getAnnotation(RocketMQListener.class);
-        consumerConfig = ConsumerConfigRocket.builder()
+        consumerConfig = RocketMQConsumerConfig.builder()
                 .consumerGroup(rocketMQListener.consumerGroup())
                 .messageModel(rocketMQListener.messageModel())
                 .orderlyMessage(rocketMQListener.orderly())
@@ -76,7 +76,7 @@ public final class RocketMQListenerMethodAdapter<E> implements RocketMQConsumerL
     }
 
     @Override
-    public ConsumerConfigRocket getConsumerConfig() {
+    public RocketMQConsumerConfig getConsumerConfig() {
         return this.consumerConfig;
     }
 

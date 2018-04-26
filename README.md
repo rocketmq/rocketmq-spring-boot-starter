@@ -1,4 +1,4 @@
-# spring-boot-starter-rocketmq
+# rocketmq-spring-boot-starter
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -8,9 +8,9 @@
 ```xml
 <!--add dependency in pom.xml-->
 <dependency>
-    <groupId>org.rocketmq</groupId>
-    <artifactId>spring-boot-starter-rocketmq</artifactId>
-    <version>1.2.0.RELEASE</version>
+    <groupId>org.rocketmq.spring.boot</groupId>
+    <artifactId>rocketmq-spring-boot-starter</artifactId>
+    <version>1.0.0.RELEASE</version>
 </dependency>
 ```
 

@@ -20,11 +20,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.rocketmq</groupId>
-    <artifactId>spring-boot-starter-rocketmq</artifactId>
-    <version>1.2.0.RELEASE</version>
+    <artifactId>rocketmq-spring-boot-starter</artifactId>
+    <version>1.0.0.RELEASE</version>
     <packaging>jar</packaging>
 
-    <name>spring-boot-starter-rocketmq</name>
+    <name>rocketmq-spring-boot-starter</name>
     <description>starter for rocketmq</description>
 
     <parent>
@@ -33,7 +33,6 @@
         <version>7</version>
     </parent>
 
-
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -41,12 +40,6 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-
-    <scm>
-        <url>https://github.com/rocketmq/spring-boot-starter-rocketmq</url>
-        <connection>https://github.com/rocketmq/spring-boot-starter-rocketmq.git</connection>
-        <developerConnection>https://www.rocketmq.org</developerConnection>
-    </scm>
 
     <developers>
         <developer>
